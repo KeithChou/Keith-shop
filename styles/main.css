@@ -20,6 +20,22 @@
 	left:198px;
 	top:20px;
 }
+
+
+
+#inputSearch{
+	border:1px solid #bababa;
+	color:#999;
+	font-size:14px;
+	height:17px;
+	padding:3px 6px 5px 6px;
+	width:200px;
+}
+#inputSearch.focus{
+	border:1px solid #00a5ff;
+}
+
+
 #skin{
 	float:right;
 	margin:10px;
@@ -72,4 +88,72 @@
 }
 #skin_5.selected{
 	background-position: 95px 15px;
+}
+.mainNav{
+	position: absolute;
+	top:68px;
+	left:0px;
+	height:37px;
+	line-height:37px;
+	width:990px;
+	z-index:100;
+	background-color: #4a4a4a;
+}
+.mainNav .nav{
+	display: inline;
+	float:left;
+	margin-left:25px;
+}
+.mainNav ul li{
+	float:left;
+	display: inline;
+	margin-right:14px;
+	position: relative;
+	z-index: 100;
+}
+.mainNav ul li a{
+	display:block;
+	padding:0 8px;
+	font-weight: 700;
+	color:#fff;
+	font-size:14px;
+}
+.jnNav{
+	background: #fff;
+	border:1px solid #b1b1b1;
+	border-top:0px;
+	position: absolute;
+	overflow: hidden;
+	top:37px;
+	left:0px;
+	width:474px;
+	z-index: 1000;
+	display:none;
+}
+.jnNav .subitem{
+	float:left;
+	height:auto !important;
+	min-height:100px;
+	padding:10px 12px;
+	width:450px;
+}
+.jnNav .subitem dl{
+	border-top:1px dashed #c4c4c4;
+	overflow: hidden;
+	padding:8px 0;
+	float: left;
+}
+.jnNav .subitem dt{
+	float:left;
+	font-weight: bold;
+	line-height: 16px;
+	padding: 4px 3px;
+	text-align:center;
+	width:76px;
+}
+.jnNav .subitem dd{
+	float:left;
+	overflow: hidden;
+	padding:0px;
+	width:364px;
 }
