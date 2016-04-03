@@ -20,18 +20,40 @@ $(document).ready(function() {
 	function switchSkin(skinName) {
 		$("#" + skinName).addClass("selected").siblings().removeClass("selected");
 		$("#cssfile").attr("href", "styles/skin/" + skinName + ".css");
-		$.cookie("MyCssSkin", skinName, {
-			path: '/',
-			expires: 10
+		$.cookie("keith", skinName, {
+			expires: 7,
+			path: "/"
 		})
 	}
-
-	$("#skin li").click(function(){
-		switchSkin($(this).attr("id"));
+	$("#skin li").click(function() {
+		switchSkin(this.id);
 	})
-	var $css_skin=$.cookie("MyCssSkin");
-	if($css_skin){
-		switchSkin($css_skin);
+	var $keith = $.cookie("keith");
+	if ($keith) {
+		switchSkin($keith);
 	}
+
+	// 导航效果
+	$("#nav li").hover(function() {
+			$(this).find(".jnNav").show();
+		},
+		function() {
+			$(this).find(".jnNav").hide()
+		})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
