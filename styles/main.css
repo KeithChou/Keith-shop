@@ -198,6 +198,7 @@
 	margin:0 auto;
 	width:990px;
 	position:relative;
+	font-size:12px;
 }
 .janeshop{
 	height:560px;
@@ -210,7 +211,14 @@
 	margin:0 11px 0 0 ;
 	overflow: hidden;
 	width:187px;
-
+}
+#jnImageroll{
+	float:left;
+	height:320px;
+	margin:0px 11px 0 0;
+	overflow:hidden;
+	position:relative;
+	width:550px;
 }
 /* 左边商品分类 */
 #jnCatalog h2{
@@ -237,6 +245,8 @@
 	line-height:24px;
 	width:164px;
 	clear:both;
+	font-size:13px;
+	font-weight:bold;
 }
 .jnCatainfo ul{
 	float:left;
@@ -265,9 +275,50 @@
 	background: url("../images/hot.gif") no-repeat scroll 0 0 transparent;
 	height:16px;
 	position:absolute;
-	top:0px;
+	top:2px;
 	width:21px;
 }
-
+/* 大屏广告 */
+#jnImageroll img{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+#jnImageroll div{
+	position:absolute;
+	bottom:0px;
+	overflow:hidden;
+	float:left;
+}
+#jnImageroll div a{
+	background-color: #444;
+	color:#fff;
+	display:inline-block;
+	float:left;
+	height:32px;
+	margin-right:1px;
+	overflow:hidden;
+	padding:5px 15px;
+	text-align:center;
+	width:79px;
+}
+#jnImageroll div a:hover{
+	text-decoration:underline;
+}
+#jnImageroll div a em{
+	cursor:pointer;
+	display:block;
+	height:16px;
+	overflow:hidden;
+	width:79px;
+}
+#jnImageroll .last{
+	margin:0px;
+	width:80px;
+}
+#jnImageroll a.chos{
+	background: url('../images/adindex.gif') no-repeat center 39px #37a7d7;
+	color:#fff;
+}
 
 
