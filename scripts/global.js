@@ -41,6 +41,8 @@ $(document).ready(function() {
 			$(this).find(".jnNav").hide()
 		})
 
+	// 左侧商品分类热销效果
+	$(".jnCatainfo .promoted").append('<i class="hot"></i>')
 
 
 
