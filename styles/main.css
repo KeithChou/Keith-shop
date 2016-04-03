@@ -89,6 +89,8 @@
 #skin_5.selected{
 	background-position: 95px 15px;
 }
+
+/*导航样式开始*/
 .mainNav{
 	position: absolute;
 	top:68px;
@@ -118,6 +120,10 @@
 	color:#fff;
 	font-size:14px;
 }
+.mainNav ul li a:hover{
+	background: none;
+}
+/*二级菜单*/
 .jnNav{
 	background: #fff;
 	border:1px solid #b1b1b1;
@@ -143,6 +149,10 @@
 	padding:8px 0;
 	float: left;
 }
+.jnNav .subitem .fore{
+	border-top-style:none;
+	padding-top:0;
+}
 .jnNav .subitem dt{
 	float:left;
 	font-weight: bold;
@@ -151,9 +161,113 @@
 	text-align:center;
 	width:76px;
 }
+.jnNav .subitem dt a{
+	color:#000;
+	font-weight:700;
+	font-size:12px;
+	padding:0;
+}
 .jnNav .subitem dd{
 	float:left;
 	overflow: hidden;
 	padding:0px;
 	width:364px;
 }
+.jnNav .subitem em {
+	border-right:1px solid #ccc;
+	float:left;
+	font-style:normal;
+	height:14px;
+	line-height:14px;
+	margin:5px 0;
+	padding:0 8px;
+}
+.jnNav .subitem em a{
+	color:#666;
+	white-space: nowrap;
+	font-size:12px;
+	font-weight: normal;
+	padding:0px;
+}
+.jnNav .subitem em.noborder{
+	border-right:none;
+}
+/* 网站主体 */
+#content{
+	clear:both;
+	margin:0 auto;
+	width:990px;
+	position:relative;
+}
+.janeshop{
+	height:560px;
+	padding:10px 0;
+	overflow: hidden;
+}
+#jnCatalog{
+	float:left;
+	height:560px;
+	margin:0 11px 0 0 ;
+	overflow: hidden;
+	width:187px;
+
+}
+/* 左边商品分类 */
+#jnCatalog h2{
+	height:30px;
+	line-height:30px;
+	font-weight: bold;
+	text-indent:13px;
+	color:#fff;
+	font-size:14px;
+	background-color: #6e6e6e;
+}
+.jnCatainfo{
+	border:1px solid #6e6e6e;
+	border-style:none solid solid;
+	border-width:0 1px 1px;
+	height:524px;
+	overflow: hidden;
+	padding:5px 10px 0;
+	width:165px;
+}
+.jnCatainfo h3{
+	border-bottom:1px solid #eee;
+	height:24px;
+	line-height:24px;
+	width:164px;
+	clear:both;
+}
+.jnCatainfo ul{
+	float:left;
+	padding:0 2px 8px;
+}
+.jnCatainfo li{
+	color:#aeadae;
+	float:left;
+	height:24px;
+	line-height:24px;
+	width:79px;
+	overflow:hidden;
+	position: relative;
+}
+.jnCatainfo li a{
+	color:#444;
+}
+.jnCatainfo li a:hover{
+	color:#008cd7;
+	text-decoration:none;
+}
+.jnCatainfo li a.promoted{
+	color:#f9044e;
+}
+.jnCatainfo li .hot{
+	background: url("../images/hot.gif") no-repeat scroll 0 0 transparent;
+	height:16px;
+	position:absolute;
+	top:0px;
+	width:21px;
+}
+
+
+
