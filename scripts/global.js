@@ -45,12 +45,90 @@ $(document).ready(function() {
 	$(".jnCatainfo .promoted").append('<i class="hot"></i>')
 
 
+	// 右侧上部产品广告效果
+	var index = 0;
+	var len = $("#jnImageroll div a").length;
+	var $keith = null;
+	$("#jnImageroll div a").mouseover(function() {
+		index = $("#jnImageroll div a").index(this);
+		showImg(index);
+	}).eq(0).mouseover();
+
+
+	$("#jnImageroll").hover(function() {
+		if ($keith) {
+			clearInterval($keith);
+		}
+	}, function() {
+		$keith = setInterval(function() {
+			showImg(index)
+			index++;
+			if (index == len) {
+				index = 0
+			}
+		}, 3000)
+	}).trigger('mouseleave');
+
+	function showImg(index) {
+		var $link = $("#jnImageroll div a");
+		var $href = $link.eq(index).attr("href");
+		$("#JS_imgWrap").attr("href", $href)
+			.find("img").eq(index).stop(true, true).fadeIn().siblings().fadeOut();
+		$link.removeClass('chos').css("opacity", 0.5)
+			.eq(index).addClass('chos').css("opacity", 1)
+	}
+	// 右侧最新模块内容添加超链接提示
+	var x = 15;
+	var y = 15;
+	$("#jnNoticeInfo li a.tooltip").mouseover(function(event) {
+		this.myTitle = this.title;
+		var $page = "<div id='tooltip'>" + this.myTitle + "</div>";
+		var $info = $("#jnNoticeInfo");
+		this.title = '';
+		$("body").append($page);
+		$("#tooltip").css({
+			"left": (event.pageX + x) + "px",
+			"top": (event.pageY + y) + "px"
+		}).show("fast")
+	}).mouseout(function() {
+		this.title = this.myTitle;
+		$("#tooltip").remove()
+	}).mousemove(function(event) {
+		$("#tooltip").css({
+			"left": (event.pageX + x) + "px",
+			"top": (event.pageY + y) + "px"
+		})
+	});
+	// 右侧下部光标滑过产品列表效果
+	$("#jnBrandTab a").click(function() {
+		$(this).parent().addClass("chos").siblings().removeClass('chos');
+		var $index=$("#jnBrandTab a").index(this);
+		showPic($index);
+		return false;
+	}).eq(0).click();
 
 
 
+	function showPic(index){
+		var speed=1000;
+		var $show=$("#jnBrandList");
+		var $width=($show.find("li").outerWidth())*4;
+		if(!$show.is(":animated")){
+			$show.stop(true,false).animate({"left": -$width*index}, "slow");
+		}
+	}
 
+	$("#jnBrandList li").each(function(index) {
+		var $img=$(this).find("img");
+		var $width=$img.width();
+		var $height=$img.height();
+		var $page="<span style='position:absolute;top:0;left:5px;width:"+$width+"px;height:"+$height+"px;' class='imageMask'></span>";
+		$($page).appendTo($(this))
+	});
 
-
+	$("#jnBrandList").find(".imageMask").live('hover', function() {
+		$(this).toggleClass("imageOver")
+	});
 
 
 
