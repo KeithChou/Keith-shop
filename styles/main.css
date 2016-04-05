@@ -479,3 +479,48 @@
 	filter:alpha(opacity=60);
 	opacity:0.6;
 }
+
+/* detail start*/
+#jnProitem{
+	float:left;
+	width:312px;
+	height:560px;
+	display:inline;
+}
+/* 产品大图和产品缩略图 start */
+#jnProitem .jqzoomWrap{
+	border:1px solid #bbb;
+	cursor:pointer;
+	float:left;
+	padding:0px;
+	position:relative;
+}
+#jnProitem span{
+	clear:both;
+	display:block;
+	padding-bottom:10px;
+	padding-top:10px;
+	width:320px;
+	text-align:center;
+}
+#jnProitem ul.imgList{
+	height:80px;
+}
+#jnProitem ul.imgList li{
+	float:left;
+	margin-right:10px;
+}
+#jnProitem ul.imgList li img{
+	width:60px;
+	height:60px;
+	padding:1px;
+	background-color: #eee;
+	cursor:pointer;
+}
+#jnProitem ul.imgList li img:hover{
+	padding:1px;
+	background-color: #999;
+}
+/* 产品大图和产品缩略图 end */
+
+/* detail end */

@@ -78,50 +78,52 @@ $(document).ready(function() {
 			.eq(index).addClass('chos').css("opacity", 1)
 	}
 	// 右侧最新模块内容添加超链接提示
-	var x=15;
-	var y=20
+	var x = 15;
+	var y = 20
 	$("#jnNoticeInfo li a").mouseover(function(event) {
-		this.myTitle=this.title
-		var $page='<div id="tooltip">'+this.myTitle+'</div>';
+		this.myTitle = this.title
+		var $page = '<div id="tooltip">' + this.myTitle + '</div>';
 		$("body").append($page)
-		this.title=''
+		this.title = ''
 		$("#tooltip").css({
-			"top":(event.pageY+y)+"px",
-			"left":(event.pageX+x)+"px"
+			"top": (event.pageY + y) + "px",
+			"left": (event.pageX + x) + "px"
 		}).show("fast")
 	}).mouseout(function() {
 		$("#tooltip").remove()
-		this.title=this.myTitle
+		this.title = this.myTitle
 	}).mousemove(function(event) {
 		$("#tooltip").css({
-			"top":(event.pageY+y)+"px",
-			"left":(event.pageX+x)+"px"
+			"top": (event.pageY + y) + "px",
+			"left": (event.pageX + x) + "px"
 		})
 	});
 	// 右侧下部光标滑过产品列表效果
-	$("#jnBrandTab li a").click(function(){
+	$("#jnBrandTab li a").click(function() {
 		$(this).parent().addClass('chos').siblings().removeClass('chos')
-		var $index=$("#jnBrandTab li a").index($(this))
+		var $index = $("#jnBrandTab li a").index($(this))
 		showPic($index);
 		return false;
 	}).eq(0).click();
 
 
-	function showPic(index){
-		var $show=$("#jnBrandList");
-		var len=4;
-		var speed="slow";
-		var $width=($("#jnBrandList li").outerWidth())*len;
-		if(!$show.is(":animated")){
-			$show.animate({"left": -$width*index}, speed)
+	function showPic(index) {
+		var $show = $("#jnBrandList");
+		var len = 4;
+		var speed = "slow";
+		var $width = ($("#jnBrandList li").outerWidth()) * len;
+		if (!$show.is(":animated")) {
+			$show.animate({
+				"left": -$width * index
+			}, speed)
 		}
 	}
 
 	$("#jnBrandList li").each(function(index) {
-		var $img=$(this).find("img");
-		var $width=$img.width();
-		var $height=$img.height();
-		var $page="<span style='position:absolute;top:0;left:5px;width:"+$width+"px;height:"+$height+"px;' class='imageMask'></span>";
+		var $img = $(this).find("img");
+		var $width = $img.width();
+		var $height = $img.height();
+		var $page = "<span style='position:absolute;top:0;left:5px;width:" + $width + "px;height:" + $height + "px;' class='imageMask'></span>";
 		$($page).appendTo($(this))
 	});
 
@@ -130,9 +132,32 @@ $(document).ready(function() {
 	});
 
 
+});
+
+$(document).ready(function() {
+	// detail star
+	// jquery.zoom star
+	$(".jqzoom").jqzoom({
+			zoomType: 'standard',
+			lens: true,
+			preloadImages: false,
+			alwaysOn: false,
+			zoomWidth: 340,
+			zoomHiehgt: 340,
+			xOffset: 10,
+			yOffset: 0,
+			position: 'right'
+		})
+		//jquery.zoom end
+	$("#jnProitem ul.imgList li a").click(function() {
+		var imgSrc=$(this).find("img").attr("src");
+		var i=imgSrc.lastIndexOf(".")    //23
+		var unit=imgSrc.substring(i);	//.jpg
+		imgSrc=imgSrc.substring(0,i);	//.jpg前面的所有内容。获得当前src的值 然后在当前值的基础上加入字符串。
+		var imgSrc_big=imgSrc+"_big"+unit;
+		$("#thickImg").attr("href",imgSrc_big);
+	});
 
 
-
-
-
+	// detail end
 });
