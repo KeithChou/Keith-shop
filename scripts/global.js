@@ -78,43 +78,42 @@ $(document).ready(function() {
 			.eq(index).addClass('chos').css("opacity", 1)
 	}
 	// 右侧最新模块内容添加超链接提示
-	var x = 15;
-	var y = 15;
-	$("#jnNoticeInfo li a.tooltip").mouseover(function(event) {
-		this.myTitle = this.title;
-		var $page = "<div id='tooltip'>" + this.myTitle + "</div>";
-		var $info = $("#jnNoticeInfo");
-		this.title = '';
-		$("body").append($page);
+	var x=15;
+	var y=20
+	$("#jnNoticeInfo li a").mouseover(function(event) {
+		this.myTitle=this.title
+		var $page='<div id="tooltip">'+this.myTitle+'</div>';
+		$("body").append($page)
+		this.title=''
 		$("#tooltip").css({
-			"left": (event.pageX + x) + "px",
-			"top": (event.pageY + y) + "px"
+			"top":(event.pageY+y)+"px",
+			"left":(event.pageX+x)+"px"
 		}).show("fast")
 	}).mouseout(function() {
-		this.title = this.myTitle;
 		$("#tooltip").remove()
+		this.title=this.myTitle
 	}).mousemove(function(event) {
 		$("#tooltip").css({
-			"left": (event.pageX + x) + "px",
-			"top": (event.pageY + y) + "px"
+			"top":(event.pageY+y)+"px",
+			"left":(event.pageX+x)+"px"
 		})
 	});
 	// 右侧下部光标滑过产品列表效果
-	$("#jnBrandTab a").click(function() {
-		$(this).parent().addClass("chos").siblings().removeClass('chos');
-		var $index=$("#jnBrandTab a").index(this);
+	$("#jnBrandTab li a").click(function(){
+		$(this).parent().addClass('chos').siblings().removeClass('chos')
+		var $index=$("#jnBrandTab li a").index($(this))
 		showPic($index);
 		return false;
 	}).eq(0).click();
 
 
-
 	function showPic(index){
-		var speed=1000;
 		var $show=$("#jnBrandList");
-		var $width=($show.find("li").outerWidth())*4;
+		var len=4;
+		var speed="slow";
+		var $width=($("#jnBrandList li").outerWidth())*len;
 		if(!$show.is(":animated")){
-			$show.stop(true,false).animate({"left": -$width*index}, "slow");
+			$show.animate({"left": -$width*index}, speed)
 		}
 	}
 
