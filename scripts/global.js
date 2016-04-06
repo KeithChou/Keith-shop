@@ -138,26 +138,24 @@ $(document).ready(function() {
 	// detail star
 	// jquery.zoom star
 	$(".jqzoom").jqzoom({
-			zoomType: 'standard',
-			lens: true,
-			preloadImages: false,
-			alwaysOn: false,
-			zoomWidth: 340,
-			zoomHiehgt: 340,
-			xOffset: 10,
-			yOffset: 0,
-			position: 'right'
-		})
+		zoomType:"standard",
+		lens:true,
+		preloadImages:false,
+		alwaysOn:false,
+		zoomWidth:340,
+		zoomHeight:340,
+		xOffset:10,
+		yOffset:0,
+		position:"right"
+	})
 		//jquery.zoom end
-	$("#jnProitem ul.imgList li a").click(function() {
-		var imgSrc=$(this).find("img").attr("src");
-		var i=imgSrc.lastIndexOf(".")    //23
-		var unit=imgSrc.substring(i);	//.jpg
-		imgSrc=imgSrc.substring(0,i);	//.jpg前面的所有内容。获得当前src的值 然后在当前值的基础上加入字符串。
-		var imgSrc_big=imgSrc+"_big"+unit;
-		$("#thickImg").attr("href",imgSrc_big);
-	});
-
-
+	$(".imgList li a").click(function(){
+		var img=$(this).find("img").attr("src");
+		var i=img.lastIndexOf(".");
+		var unit=img.substring(i);
+		img=img.substring(0,i);
+		var imgbig=img+"_big"+unit;
+		$("#thickImg").attr("href",imgbig)
+	})
 	// detail end
 });
