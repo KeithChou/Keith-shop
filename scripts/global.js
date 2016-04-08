@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// 搜索框文字效果
 	$("#inputSearch").focus(function() {
 		$(this).addClass("focus")
-		if ($(this).val() == this.defaultValue) {
+		if ($(this).val() == this.defaultValue) {  //this.defaultValue
 			$(this).val("");
 		}
 	}).blur(function() {
@@ -35,10 +35,10 @@ $(document).ready(function() {
 
 	// 导航效果
 	$("#nav li").hover(function() {
-			$(this).find(".jnNav").show();
+			$(this).find(".jnNav").show();  //mouseenter,简化DOM中的mouseenter事件
 		},
 		function() {
-			$(this).find(".jnNav").hide()
+			$(this).find(".jnNav").hide();	//mouseleave,简化DOM中的mouseleave事件
 		})
 
 	// 左侧商品分类热销效果
@@ -192,8 +192,27 @@ $(document).ready(function() {
 		$(".pro_price strong").text(total);
 	}).change();
 
-	$(".pro_rating li").click(function(){
-		alert("keith")
+	$(".pro_rating ul li a").click(function(){
+		var $classname=$(this).parent().attr("class");
+		$(this).parent().parent().removeClass().addClass('rating '+$classname+'star');
+		$(this).blur()
+		return false;
+	})
+	var $right=$("#jnDetails");
+	$(".cart a").click(function(){
+		var $proname=$right.find("h4:first").text();
+		var $procolor=$right.find('.color_change strong').text();
+		var $prosize=$right.find(".pro_size strong").text();
+		var $pronum=$right.find("#num_sort").val();
+		var $proprice=$right.find(".pro_price strong").text();
+		var dialog='感谢您的购买\n您购买的\n'+
+					'产品是：'+$proname+";\n"+
+					'尺寸是：'+$prosize+";\n"+
+					'颜色是：'+$procolor+";\n"+
+					'数量是：'+$pronum+";\n"+
+					'总价是：'+$proprice+"元";
+		alert(dialog);
+		return false;
 	})
 	// detail end
 });
