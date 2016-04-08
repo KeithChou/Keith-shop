@@ -16,7 +16,7 @@
 	line-height:80px;
 }
 #header .search{
-	position: absolute;
+	position: absolute;  /* 绝对定位 */
 	left:198px;
 	top:20px;
 }
@@ -28,7 +28,7 @@
 	color:#999;
 	font-size:14px;
 	height:17px;
-	padding:3px 6px 5px 6px;
+	padding:3px 6px 5px;
 	width:200px;
 }
 #inputSearch.focus{
@@ -50,7 +50,7 @@
 	overflow:hidden;
 	display:block;
 	cursor:pointer;
-	text-indent:-9999px;
+	text-indent:-9999px;     /*移除掉li中的文字*/
 	background-image: url(../images/theme.gif);
 }
 #skin_0{
@@ -69,7 +69,7 @@
 	background-position: 75px 0px;
 }
 #skin_5{
-	background-position: 95px 0px
+	background-position: 95px 0px;
 }
 #skin_0.selected{
 	background-position: 0px 15px;
@@ -122,6 +122,7 @@
 }
 .mainNav ul li a:hover{
 	background: none;
+	text-decoration:underline;
 }
 /*二级菜单*/
 .jnNav{
@@ -245,7 +246,7 @@
 }
 .jnCatainfo{
 	border:1px solid #6e6e6e;
-	border-style:none solid solid;
+	border-style:none solid solid; /*this may be good.*/
 	border-width:0 1px 1px;
 	height:524px;
 	overflow: hidden;
@@ -629,15 +630,15 @@
 	overflow:hidden;
 	width:80px;
 	height:16px;
-	padding:0px;
-	margin:0 0 20px 0;
-	clear:both;
-	cursor:pointer;
+	margin:4px 0 10px 0;
+	padding:0;
 	list-style:none;
-	background: url('../images/star-matrix.gif') no-repeat 0 0;
+	clear:both;
+	position:relative;
+	background: url('../images/star-matrix.gif') no-repeat 0 0 ;
 }
-.nostar {
-	background-position:0 0 ;
+.nostar{
+	background-position: 0 0 ;
 }
 .onestar{
 	background-position: 0 -16px;
@@ -655,55 +656,44 @@
 	background-position: 0 -80px;
 }
 ul.rating li{
+	cursor:pointer;
 	float:left;
 	text-indent:-9999px;
-	cursor:pointer;
 }
 ul.rating li a{
+	width:16px;
 	position:absolute;
 	left:0px;
 	top:0px;
-	width:16px;
 	height:16px;
-	z-index:1;
+	text-decoration:none;
+	z-index:200;
 }
-ul.rating li.one a{
-	left:0px;
-}
-ul.rating li.two a{
-	left:16px;
-}
-ul.rating li.three a{
-	left:32px;
-}
-ul.rating li.four a{
-	left:48px;
-}
-ul.rating li.five a{
-	left:64px;
-}
+ul.rating li.one a{left:0;}
+ul.rating li.two a{left:16px;}
+ul.rating li.three a{left:32px;}
+ul.rating li.four a{left:48px;}
+ul.rating li.five a{left:64px;}
 ul.rating li a:hover{
 	z-index:2;
 	width:80px;
 	height:16px;
-	overflow:hidden;
 	left:0px;
+	position:absolute;
+	overflow:hidden;
 	background: url('../images/star-matrix.gif') no-repeat 0 0 ;
 }
-ul.rating li.one a:hover{
-	background-position: 0 -96px;
-}
-ul.rating li.two a:hover{
-	background-position: 0 -112px;
-}
-ul.rating li.three a:hover{
-	background-position: 0 -128px;
-}
-ul.rating li.four a:hover{
-	background-position: 0 -144px;
-}
-ul.rating li.five a:hover{
-	background-position: 0 -160px;
-}
+ul.rating li.one a:hover{background-position: 0 -96px;}
+ul.rating li.two a:hover{background-position: 0 -112px;}
+ul.rating li.three a:hover{background-position: 0 -128px;}
+ul.rating li.four a:hover{background-position: 0 -144px;}
+ul.rating li.five a:hover{background-position: 0 -160px;}
 /* jnDeatails end */
 /* detail end */
+#footer{
+	width:990px;
+	margin:4px auto 8px;
+	text-align:center;
+	font-size:14px;
+	color:#ccc;
+}
