@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// 搜索框文字效果
 	$("#inputSearch").focus(function() {
 		$(this).addClass("focus")
-		if ($(this).val() == this.defaultValue) {  //this.defaultValue
+		if ($(this).val() == this.defaultValue) { //this.defaultValue
 			$(this).val("");
 		}
 	}).blur(function() {
@@ -35,10 +35,10 @@ $(document).ready(function() {
 
 	// 导航效果
 	$("#nav li").hover(function() {
-			$(this).find(".jnNav").show();  //mouseenter,简化DOM中的mouseenter事件
+			$(this).find(".jnNav").show(); //mouseenter,简化DOM中的mouseenter事件
 		},
 		function() {
-			$(this).find(".jnNav").hide();	//mouseleave,简化DOM中的mouseleave事件
+			$(this).find(".jnNav").hide(); //mouseleave,简化DOM中的mouseleave事件
 		})
 
 	// 左侧商品分类热销效果
@@ -55,12 +55,12 @@ $(document).ready(function() {
 	}).eq(0).mouseover();
 
 
-	$("#jnImageroll").hover(function() {
+	$("#jnImageroll").hover(function() { //mouseenter
 		if ($keith) {
 			clearInterval($keith);
 		}
 	}, function() {
-		$keith = setInterval(function() {
+		$keith = setInterval(function() { //mouseleave
 			showImg(index)
 			index++;
 			if (index == len) {
@@ -74,7 +74,7 @@ $(document).ready(function() {
 		var $href = $link.eq(index).attr("href");
 		$("#JS_imgWrap").attr("href", $href)
 			.find("img").eq(index).stop(true, true).fadeIn().siblings().fadeOut();
-		$link.removeClass('chos').css("opacity", 0.5)
+		$link.removeClass('chos').css("opacity", 0.7)
 			.eq(index).addClass('chos').css("opacity", 1)
 	}
 	// 右侧最新模块内容添加超链接提示
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		})
 	});
 	// 右侧下部光标滑过产品列表效果
-	$("#jnBrandTab li a").click(function() {
+	$("#jnBrandTab li>a").click(function() {
 		$(this).parent().addClass('chos').siblings().removeClass('chos')
 		var $index = $("#jnBrandTab li a").index($(this))
 		showPic($index);
@@ -137,82 +137,82 @@ $(document).ready(function() {
 $(document).ready(function() {
 	// detail star
 	// jquery.zoom star
-	$(".jqzoom").jqzoom({
-		zoomType:"standard",
-		lens:true,
-		preloadImages:false,
-		alwaysOn:false,
-		zoomWidth:340,
-		zoomHeight:340,
-		xOffset:10,
-		yOffset:0,
-		position:"right"
-	})
-		//jquery.zoom end
-	$(".imgList li a").click(function(){
-		var $img=$(this).find("img").attr("src");
-		var i=$img.lastIndexOf(".");
-		var unit=$img.substring(i);
-		$img=$img.substring(0,i);
-		$("#thickImg").attr("href",$img+"_big"+unit);
+	$('.jqzoom').jqzoom({
+		zoomType: "standard",
+		lens: true,
+		preloadImages: false,
+		alwaysOn: false,
+		zoomWidth: 340,
+		zoomHeight: 340,
+		xOffset: 10,
+		yOffset: 0,
+		position: 'right'
 	});
-	$('.tab_menu li').click(function(){
+	//jquery.zoom end
+	$(".imgList li a").click(function() {
+		var $img = $(this).find("img").attr("src");
+		var i = $img.lastIndexOf(".");
+		var unit = $img.substring(i);
+		$img = $img.substring(0, i);
+		$("#thickImg").attr("href", $img + "_big" + unit);
+	});
+	$('.tab_menu li').click(function() {
 		$(this).addClass("selected").siblings().removeClass("selected");
-		var $index=$('.tab_menu li').index($(this));
-		$(".tab_box").find("div").eq($index).show().siblings().hide()
+		var $index = $('.tab_menu li').index(this);
+		$(".tab_box").find("div").eq($index).show().siblings().hide();
 	}).hover(function() {
 		$(this).addClass("hover")
 	}, function() {
 		$(this).removeClass('hover')
 	});
 
-	$(".color_change li img").click(function(){
-		var $alt=$(this).attr("alt");
+	$(".color_change li img").click(function() {
+		var $alt = $(this).attr("alt");
 		$(".color_change strong").text($alt);
-		var $src=$(this).attr("src");
-		var i=$src.lastIndexOf(".");
-		var unit=$src.substring(i);
-		$src=$src.substring(0,i);
-		$("#bigImg").attr("src",$src+'_one_small'+unit);
-		$("#thickImg").attr("href",$src+'_one_big'+unit);
-		var newsrc=$src.replace("images/pro_img/","");
+		var $src = $(this).attr("src");
+		var i = $src.lastIndexOf(".");
+		var unit = $src.substring(i);
+		$src = $src.substring(0, i);
+		$("#bigImg").attr("src", $src + '_one_small' + unit);
+		$("#thickImg").attr("href", $src + '_one_big' + unit);
+		var newsrc = $src.replace("images/pro_img/", "");
 		$(".imgList li").hide();
-		$(".imgList").find(".imgList_"+newsrc).show()
-})
-	$(".pro_size ul li ").click(function(){
-		var $text=$(this).text();
+		$(".imgList").find(".imgList_" + newsrc).show()
+	})
+	$(".pro_size ul li ").click(function() {
+		var $text = $(this).text();
 		$(".pro_size strong").text($text);
 		$(this).addClass('cur').siblings().removeClass('cur')
 	})
 
-	var price=$(".pro_price strong").text();
-	$("#num_sort").change(function(){
-		var amount=$(this).val();
-		var total=price*amount;
+	var price = $(".pro_price strong").text();
+	$("#num_sort").change(function() {
+		var amount = $(this).val();
+		var total = price * amount;
 		$(".pro_price strong").text(total);
 	}).change();
 
-	$(".pro_rating ul li a").click(function(){
-		var $classname=$(this).parent().attr("class");
-		$(this).parent().parent().removeClass().addClass('rating '+$classname+'star');
+	$(".pro_rating ul li a").click(function() {
+		var $classname = $(this).parent().attr("class");
+		$(this).parent().parent().removeClass().addClass('rating ' + $classname + 'star');
 		$(this).blur()
 		return false;
 	})
-	var $right=$("#jnDetails");
-	$(".cart a").click(function(){
-		var $proname=$right.find("h4:first").text();
-		var $procolor=$right.find('.color_change strong').text();
-		var $prosize=$right.find(".pro_size strong").text();
-		var $pronum=$right.find("#num_sort").val();
-		var $proprice=$right.find(".pro_price strong").text();
-		var dialog='感谢您的购买\n您购买的\n'+
-					'产品是：'+$proname+";\n"+
-					'尺寸是：'+$prosize+";\n"+
-					'颜色是：'+$procolor+";\n"+
-					'数量是：'+$pronum+";\n"+
-					'总价是：'+$proprice+"元";
-		alert(dialog);
-		return false;
-	})
-	// detail end
+	var $right = $("#jnDetails");
+	$(".cart a").click(function() {
+			var $proname = $right.find("h4:first").text();
+			var $procolor = $right.find('.color_change strong').text();
+			var $prosize = $right.find(".pro_size strong").text();
+			var $pronum = $right.find("#num_sort").val();
+			var $proprice = $right.find(".pro_price strong").text();
+			var dialog = '感谢您的购买\n您购买的\n' +
+				'产品是：' + $proname + ";\n" +
+				'尺寸是：' + $prosize + ";\n" +
+				'颜色是：' + $procolor + ";\n" +
+				'数量是：' + $pronum + ";\n" +
+				'总价是：' + $proprice + "元";
+			alert(dialog);
+			return false;
+		})
+		// detail end
 });
