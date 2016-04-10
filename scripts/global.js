@@ -50,7 +50,7 @@ $(document).ready(function() {
 	var len = $("#jnImageroll div a").length;
 	var $keith = null;
 	$("#jnImageroll div a").mouseover(function() {
-		index = $("#jnImageroll div a").index(this);
+		index = $("#jnImageroll div a").index($(this));
 		showImg(index);
 	}).eq(0).mouseover();
 
@@ -84,7 +84,7 @@ $(document).ready(function() {
 		this.myTitle = this.title
 		var $page = '<div id="tooltip">' + this.myTitle + '</div>';
 		$("body").append($page)
-		this.title = ''
+		this.title = '';
 		$("#tooltip").css({
 			"top": (event.pageY + y) + "px",
 			"left": (event.pageX + x) + "px"
@@ -178,6 +178,7 @@ $(document).ready(function() {
 		var newsrc = $src.replace("images/pro_img/", "");
 		$(".imgList li").hide();
 		$(".imgList").find(".imgList_" + newsrc).show()
+		$(".imgList").find('.imgList_' + newsrc).eq(0).find("a").click()
 	})
 	$(".pro_size ul li ").click(function() {
 		var $text = $(this).text();
